@@ -1,12 +1,12 @@
 // ignore_for_file: unused_element
 
-import 'package:arisanku/resource/color/color_manager.dart';
-import 'package:arisanku/resource/font/font_manager.dart';
-import 'package:arisanku/screen/arisanku-Scene/arisanku_screen.dart';
-import 'package:arisanku/screen/arisanyuk-Scene/arisanyuk_screen.dart';
-import 'package:arisanku/screen/homepage-Scene/homepage_screen.dart';
-import 'package:arisanku/screen/pay-Scene/pay_scene.dart';
-import 'package:arisanku/screen/profile-Scene/profile_scene.dart';
+import 'package:arisanku/data/utils/resource/color/color_manager.dart';
+import 'package:arisanku/data/utils/resource/font/font_manager.dart';
+import 'package:arisanku/presentation/screen/arisanku-Scene/arisanku_screen.dart';
+import 'package:arisanku/presentation/screen/arisanyuk-Scene/arisanyuk_screen.dart';
+import 'package:arisanku/presentation/screen/homepage-Scene/homepage_screen.dart';
+import 'package:arisanku/presentation/screen/pay-Scene/pay_scene.dart';
+import 'package:arisanku/presentation/screen/profile-Scene/profile_scene.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -49,8 +49,8 @@ class _MainPageState extends State<MainPage> {
             children: [
               Container(
                 padding: EdgeInsets.only(top: 0, bottom: 2.h),
-                margin: const EdgeInsets.only(
-                    left: 15, right: 15, bottom: 0, top: 0),
+                margin:
+                    EdgeInsets.only(left: 5.w, right: 5.w, bottom: 0, top: 0),
                 height: 13.h,
                 width: double.infinity,
                 child: Container(

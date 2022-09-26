@@ -1,0 +1,88 @@
+{
+    "code": "AY-2001",
+    "message": "Get Bank Data Success",
+    "data": {
+        "lists": [
+            {
+                "imageUrl": "assets/images/images_bca.png",
+                "title": "BANK CENTRAL ASIA"
+            },
+            {
+                "imageUrl": "assets/images/images_hsbc.png",
+                "title": "BANK HSBC"
+            },
+            {
+                "imageUrl": "assets/images/images_dbs.png",
+                "title": "BANK DBS"
+            },
+            {
+                "imageUrl": "assets/images/images_danamon.png",
+                "title": "BANK DANAMON"
+            },
+            {
+                "imageUrl": "assets/images/images_panin.png",
+                "title": "BANK PANIN"
+            },
+            {
+                "imageUrl": "assets/images/images_jenius.png",
+                "title": "BANK JENIUS"
+            },
+            {
+                "imageUrl": "assets/images/images_permata.png",
+                "title": "BANK PERMATA"
+            },
+            {
+                "imageUrl": "assets/images/images_mandiri.png",
+                "title": "BANK MANDIRI"
+            },
+            {
+                "imageUrl": "assets/images/images_cimb.png",
+                "title": "BANK CIMB NIAGA"
+            },
+            {
+                "imageUrl": "assets/images/images_bukopin.png",
+                "title": "BANK BUKOPIN"
+            },
+            {
+                "imageUrl": "assets/images/images_bri.png",
+                "title": "BANK BRI"
+            },
+            {
+                "imageUrl": "assets/images/images_bni.png",
+                "title": "BANK BNI"
+            },
+            {
+                "imageUrl": "assets/images/images_gopay.png",
+                "title": "GOPAY"
+            },
+            {
+                "imageUrl": "assets/images/images_ovo.png",
+                "title": "OVO"
+            },
+            {
+                "imageUrl": "assets/images/images_bluepay.png",
+                "title": "BLUE PAY"
+            },
+            {
+                "imageUrl": "assets/images/images_dana.png",
+                "title": "DANA"
+            },
+            {
+                "imageUrl": "assets/images/images_mastercard.png",
+                "title": "MASTER CARD"
+            },
+            {
+                "imageUrl": "assets/images/images_paypal.png",
+                "title": "PAYPAL"
+            },
+            {
+                "imageUrl": "assets/images/images_visa.png",
+                "title": "VISA"
+            },
+            {
+                "imageUrl": "assets/images/images_jcb.png",
+                "title": "JCB"
+            }
+        ]
+    }
+}
