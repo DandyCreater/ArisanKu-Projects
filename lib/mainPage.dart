@@ -21,6 +21,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  late final Size size = MediaQuery.of(context).size;
   int _currentIndex = 0;
 
   var pages = [
@@ -42,187 +43,160 @@ class _MainPageState extends State<MainPage> {
     return Sizer(
       builder: ((context, orientation, deviceType) {
         return Scaffold(
-          backgroundColor: ColorManager.backgroundColor,
+          backgroundColor: ColorManager.whiteColor,
           body: pages[_currentIndex],
-          bottomNavigationBar: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 0, bottom: 2.h),
-                margin:
-                    EdgeInsets.only(left: 5.w, right: 5.w, bottom: 0, top: 0),
-                height: 13.h,
-                width: double.infinity,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: const Offset(0, 2),
-                        color: ColorManager.shadowColor,
-                      )
-                    ],
+          bottomNavigationBar: Container(
+            width: size.width,
+            height: 100,
+            child: Stack(
+              children: [
+                CustomPaint(
+                  size: Size(size.width, 100),
+                  painter: AYCustomPainter(),
+                ),
+                Center(
+                  heightFactor: 0.4,
+                  child: FloatingActionButton(
+                    onPressed: () {},
+                    child: SvgPicture.asset(
+                      "assets/icons/icon_pay.svg",
+                    ),
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: BottomAppBar(
-                      color: ColorManager.whiteColor,
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 1.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                ),
+                Container(
+                  width: size.width,
+                  height: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () => _onTapped(0),
+                        child: Column(
                           children: [
-                            GestureDetector(
-                              onTap: () => _onTapped(0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  (_currentIndex == 0)
-                                      ? SvgPicture.asset(
-                                          "assets/icons/icon_homeActive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        )
-                                      : SvgPicture.asset(
-                                          "assets/icons/icon_homeInactive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        ),
-                                  Text(
-                                    "Home",
-                                    style: regularStyle(
-                                        fontSize: 12.sp,
-                                        color: (_currentIndex == 0)
-                                            ? ColorManager.blackColor
-                                            : ColorManager.greyColor),
+                            (_currentIndex == 0)
+                                ? SvgPicture.asset(
+                                    "assets/icons/icon_homeActive.svg",
+                                  )
+                                : SvgPicture.asset(
+                                    "assets/icons/icon_homeInactive.svg",
                                   ),
-                                ],
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () => _onTapped(1),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  (_currentIndex == 1)
-                                      ? SvgPicture.asset(
-                                          "assets/icons/icon_arisanyukActive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        )
-                                      : SvgPicture.asset(
-                                          "assets/icons/icon_arisanyukInactive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        ),
-                                  Text(
-                                    "Arisan Yuk",
-                                    style: regularStyle(
-                                        fontSize: 12.sp,
-                                        color: (_currentIndex == 1)
-                                            ? ColorManager.blackColor
-                                            : ColorManager.greyColor),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 6.h,
-                              height: 6.h,
-                            ),
-                            GestureDetector(
-                              onTap: () => _onTapped(2),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  (_currentIndex == 2)
-                                      ? SvgPicture.asset(
-                                          "assets/icons/icon_arisankuActive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        )
-                                      : SvgPicture.asset(
-                                          "assets/icons/icon_arisankuInactive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        ),
-                                  Text(
-                                    "Arisanku",
-                                    style: regularStyle(
-                                        fontSize: 12.sp,
-                                        color: (_currentIndex == 2)
-                                            ? ColorManager.blackColor
-                                            : ColorManager.greyColor),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () => _onTapped(3),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  (_currentIndex == 3)
-                                      ? SvgPicture.asset(
-                                          "assets/icons/icon_profileActive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        )
-                                      : SvgPicture.asset(
-                                          "assets/icons/icon_profileInactive.svg",
-                                          height: 6.h,
-                                          width: 6.w,
-                                        ),
-                                  Text(
-                                    "Profile",
-                                    style: regularStyle(
-                                        fontSize: 12.sp,
-                                        color: (_currentIndex == 3)
-                                            ? ColorManager.blackColor
-                                            : ColorManager.greyColor),
-                                  ),
-                                ],
-                              ),
+                            Text(
+                              "Home",
+                              style: regularStyle(
+                                  fontSize: 10.sp,
+                                  color: (_currentIndex == 0)
+                                      ? ColorManager.blackColor
+                                      : ColorManager.greyColor),
                             ),
                           ],
                         ),
                       ),
-                    ),
+                      GestureDetector(
+                        onTap: () => _onTapped(1),
+                        child: Column(
+                          children: [
+                            (_currentIndex == 2)
+                                ? SvgPicture.asset(
+                                    "assets/icons/icon_arisanyukActive.svg",
+                                  )
+                                : SvgPicture.asset(
+                                    "assets/icons/icon_arisanyukInactive.svg",
+                                  ),
+                            Text(
+                              "Arisan Yuk",
+                              style: regularStyle(
+                                  fontSize: 10.sp,
+                                  color: (_currentIndex == 2)
+                                      ? ColorManager.blackColor
+                                      : ColorManager.greyColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: size.width * 0.2,
+                      ),
+                      GestureDetector(
+                        onTap: () => _onTapped(2),
+                        child: Column(
+                          children: [
+                            (_currentIndex == 2)
+                                ? SvgPicture.asset(
+                                    "assets/icons/icon_arisankuActive.svg",
+                                  )
+                                : SvgPicture.asset(
+                                    "assets/icons/icon_arisankuInactive.svg",
+                                  ),
+                            Text(
+                              "Arisanku",
+                              style: regularStyle(
+                                  fontSize: 10.sp,
+                                  color: (_currentIndex == 2)
+                                      ? ColorManager.blackColor
+                                      : ColorManager.greyColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => _onTapped(3),
+                        child: Column(
+                          children: [
+                            (_currentIndex == 3)
+                                ? SvgPicture.asset(
+                                    "assets/icons/icon_profileActive.svg",
+                                  )
+                                : SvgPicture.asset(
+                                    "assets/icons/icon_profileInactive.svg",
+                                  ),
+                            Text(
+                              "Profile",
+                              style: regularStyle(
+                                  fontSize: 10.sp,
+                                  color: (_currentIndex == 3)
+                                      ? ColorManager.blackColor
+                                      : ColorManager.greyColor),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
-                ),
-              ),
-            ],
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: SizedBox(
-            height: 10.h,
-            width: 20.w,
-            child: FloatingActionButton(
-              elevation: 0,
-              backgroundColor: ColorManager.positiveColor,
-              onPressed: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    "assets/icons/icon_pay.svg",
-                    height: 4.h,
-                    width: 4.w,
-                  ),
-                  Text(
-                    "Pay",
-                    style: regularStyle(
-                        fontSize: 12.sp, color: ColorManager.whiteColor),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           ),
         );
       }),
     );
+  }
+}
+
+class AYCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = ColorManager.whiteColor
+      ..style = PaintingStyle.fill;
+    Path path = Path()..moveTo(0, 0);
+    path.quadraticBezierTo(size.width * 0.2, 0, size.width * 0.35, 0);
+    path.quadraticBezierTo(size.width * 0.4, 0, size.width * 0.4, 20);
+    path.arcToPoint(Offset(size.width * 0.6, 20),
+        radius: const Radius.circular(10.0), clockwise: false);
+
+    path.quadraticBezierTo(size.width * 0.6, 0, size.width * 0.65, 0);
+    path.quadraticBezierTo(size.width * 0.8, 0, size.width, 0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    canvas.drawShadow(path, Colors.black, 5, true);
+    canvas.drawPath(path, paint);
+    // TODO: implement paint
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    throw false;
   }
 }
